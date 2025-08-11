@@ -1,6 +1,8 @@
 import { Injectable } from '@nestjs/common'
 
-interface Job {
+export type JobStatus = 'pending_funding' | 'funded' | 'submitted' | 'completed' | 'cancelled'
+
+export interface Job {
   id: number
   clientAddress: string
   workerAddress?: string
@@ -9,7 +11,7 @@ interface Job {
   budget: string
   deadline?: string
   skillTags?: string[]
-  status: 'pending_funding' | 'funded' | 'submitted' | 'completed' | 'cancelled'
+  status: JobStatus
   chainTxRefs?: string[]
   onChainJobId?: number
 }

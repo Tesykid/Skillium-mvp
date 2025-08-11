@@ -2,6 +2,8 @@ import { Injectable, OnModuleInit } from '@nestjs/common'
 import { ethers } from 'ethers'
 import { JobsService } from '../jobs/jobs.service'
 
+type JobStatus = 'pending_funding' | 'funded' | 'submitted' | 'completed' | 'cancelled'
+
 const ESCROW_ABI = [
   'event JobFunded(uint256 indexed jobId, uint256 amount)',
   'event FundsReleased(uint256 indexed jobId, address indexed worker, uint256 amount)',
@@ -34,7 +36,7 @@ export class ContractsListener implements OnModuleInit {
     })
   }
 
-  private updateStatus(onChainJobId: number, status: any) {
+  private updateStatus(onChainJobId: number, status: JobStatus) {
     this.jobs.updateByOnChainJobId(onChainJobId, { status })
   }
 }
