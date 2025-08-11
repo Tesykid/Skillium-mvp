@@ -1,0 +1,21 @@
+{
+  "name": "@skillium/contracts",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "hardhat compile",
+    "test": "hardhat test",
+    "dev": "hardhat node",
+    "deploy:mumbai": "hardhat run scripts/deploy.ts --network polygon_mumbai"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "hardhat": "^2.22.12",
+    "typescript": "^5.5.4",
+    "ts-node": "^10.9.2",
+    "dotenv": "^16.4.5"
+  },
+  "dependencies": {
+    "ethers": "^6.13.2"
+  }
+}
