@@ -16,6 +16,10 @@ const config: HardhatUserConfig = {
       url: process.env.ALCHEMY_RPC_URL || '',
       accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],
     },
+    polygon_amoy: {
+      url: process.env.ALCHEMY_RPC_URL || '',
+      accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],
+    },
   },
 }
 
