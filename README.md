@@ -40,6 +40,39 @@ npm run dev
 - build: turbo run build
 - lint: turbo run lint
 
-### Notes
-- API binds to 0.0.0.0:4000 and enables CORS
-- Contracts listener updates job status on chain events
+## Quick Deploy
+
+### 1) Deploy Escrow (Polygon Mumbai)
+- Set in `packages/contracts/.env`:
+  - `ALCHEMY_RPC_URL`
+  - `PRIVATE_KEY`
+- Deploy:
+```
+cd packages/contracts
+npx hardhat run scripts/deploy.ts --network polygon_mumbai
+```
+- Copy printed address to `apps/api/.env` as `CONTRACT_ADDRESS`.
+
+### 2) Deploy API (Render)
+- Use `render.yaml` (root) → New Blueprint in Render
+- Set env vars:
+  - `PORT=4000`
+  - `ALCHEMY_RPC_URL`
+  - `CONTRACT_ADDRESS`
+  - `JWT_SECRET`
+- Health: `/api/health`
+
+### 3) Deploy Web (Vercel)
+- Import repo → select `apps/web`
+- Set env vars:
+  - `NEXT_PUBLIC_API_BASE=https://your-api.onrender.com/api`
+  - `NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID`
+  - `NEXT_PUBLIC_RPC_URL`
+
+## Local Run
+- API: `cd apps/api && npm run dev`
+- Web: `cd apps/web && npm run dev`
+
+## Notes
+- API binds 0.0.0.0:4000 and has `/api/health`
+- Contracts listener updates job status from chain events
