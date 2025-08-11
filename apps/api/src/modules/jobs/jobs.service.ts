@@ -54,4 +54,11 @@ export class JobsService {
     Object.assign(job, changes)
     return job
   }
+
+  updateByOnChainJobId(onChainJobId: number, changes: Partial<Job>) {
+    const job = jobs.find((j) => j.onChainJobId === onChainJobId)
+    if (!job) return null
+    Object.assign(job, changes)
+    return job
+  }
 }
