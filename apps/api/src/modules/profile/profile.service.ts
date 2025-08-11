@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common'
 
-interface Profile {
+export interface Profile {
   walletAddress: string
   displayName?: string
   bio?: string

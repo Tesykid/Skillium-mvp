@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common'
 
-interface Rating {
+export interface Rating {
   id: number
   fromAddress: string
   toAddress: string
@@ -14,7 +14,7 @@ const ratings: Rating[] = []
 
 @Injectable()
 export class RatingsService {
-  create(r: Omit<Rating, 'id'>) {
+  create(r: Omit<Rating, 'id'>): Rating {
     const created: Rating = { id: ratingIdSeq++, ...r }
     ratings.push(created)
     return created

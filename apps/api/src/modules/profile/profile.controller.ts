@@ -1,5 +1,5 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common'
-import { ProfileService } from './profile.service'
+import { ProfileService, Profile } from './profile.service'
 
 interface ProfileBody {
   walletAddress: string
@@ -15,12 +15,12 @@ export class ProfileController {
   constructor(private readonly profileService: ProfileService) {}
 
   @Post()
-  upsert(@Body() body: ProfileBody) {
+  upsert(@Body() body: ProfileBody): Profile {
     return this.profileService.upsert(body)
   }
 
   @Get(':wallet')
-  get(@Param('wallet') wallet: string) {
+  get(@Param('wallet') wallet: string): Profile | null {
     return this.profileService.get(wallet)
   }
 }

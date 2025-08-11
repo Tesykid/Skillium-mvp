@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 import { apiGet } from '../../lib/api'
 
 type Job = {
