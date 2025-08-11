@@ -11,6 +11,7 @@ interface Job {
   skillTags?: string[]
   status: 'pending_funding' | 'funded' | 'submitted' | 'completed' | 'cancelled'
   chainTxRefs?: string[]
+  onChainJobId?: number
 }
 
 let jobIdSeq = 1
@@ -30,6 +31,7 @@ export class JobsService {
       skillTags: job.skillTags || [],
       status: 'pending_funding',
       chainTxRefs: [],
+      onChainJobId: job.onChainJobId,
     }
     jobs.push(created)
     return created

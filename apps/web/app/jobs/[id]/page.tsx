@@ -17,6 +17,11 @@ export default async function JobDetail({ params }: { params: { id: string } }) 
       <p className="text-neutral-300">{job.description}</p>
       <div>Budget: {job.budget} MATIC</div>
       <div>Status: {job.status}</div>
+      {job.onChainJobId ? (
+        <div className="text-sm text-neutral-400">On-chain Job ID: {job.onChainJobId}</div>
+      ) : (
+        <div className="text-sm text-amber-400">On-chain job not created yet</div>
+      )}
       <JobActions job={job} />
     </div>
   )

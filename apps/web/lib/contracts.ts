@@ -2,6 +2,7 @@ import { BrowserProvider, Contract, formatEther, parseEther } from 'ethers'
 import { apiGet } from './api'
 
 const ESCROW_ABI = [
+  'function nextJobId() view returns (uint256)',
   'function createJob(address worker, uint256 amount) returns (uint256)',
   'function fundJob(uint256 jobId) payable',
   'function releaseFunds(uint256 jobId)',
