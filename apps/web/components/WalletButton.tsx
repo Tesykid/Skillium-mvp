@@ -12,11 +12,11 @@ const metadata = {
 
 const chains = [
   {
-    chainId: 80001,
-    name: 'Polygon Mumbai',
+    chainId: 80002,
+    name: 'Polygon Amoy',
     currency: 'MATIC',
-    explorerUrl: 'https://mumbai.polygonscan.com',
-    rpcUrl: process.env.NEXT_PUBLIC_RPC_URL || 'https://polygon-mumbai.g.alchemy.com/v2/your-key'
+    explorerUrl: 'https://amoy.polygonscan.com',
+    rpcUrl: process.env.NEXT_PUBLIC_RPC_URL || 'https://polygon-amoy.g.alchemy.com/v2/your-key'
   }
 ]
 
