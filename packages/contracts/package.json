@@ -6,7 +6,8 @@
     "build": "hardhat compile",
     "test": "hardhat test",
     "dev": "hardhat node",
-    "deploy:mumbai": "hardhat run scripts/deploy.ts --network polygon_mumbai"
+    "deploy:mumbai": "hardhat run scripts/deploy.ts --network polygon_mumbai",
+    "deploy:amoy": "hardhat run scripts/deploy.ts --network polygon_amoy"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-chai-matchers": "^2.1.0",
