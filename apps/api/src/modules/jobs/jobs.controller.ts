@@ -15,6 +15,11 @@ export class JobsController {
     return this.jobsService.list(query)
   }
 
+  @Get(':id')
+  get(@Param('id') id: string) {
+    return this.jobsService.get(Number(id))
+  }
+
   @Patch(':id')
   update(@Param('id') id: string, @Body() body: any) {
     return this.jobsService.update(Number(id), body)

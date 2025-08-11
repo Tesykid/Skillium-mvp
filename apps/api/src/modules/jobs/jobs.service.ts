@@ -42,6 +42,10 @@ export class JobsService {
     })
   }
 
+  get(id: number) {
+    return jobs.find((j) => j.id === id) || null
+  }
+
   update(id: number, changes: Partial<Job>) {
     const job = jobs.find((j) => j.id === id)
     if (!job) return null
