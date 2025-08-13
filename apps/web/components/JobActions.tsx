@@ -12,7 +12,7 @@ export default function JobActions({ job }: { job: any }) {
     if (!workerAddress) throw new Error('Worker address required')
     const { contract } = await getSignerContract()
     const nextId: bigint = await contract.nextJobId()
-    const expectedId = Number(nextId + 1n)
+    const expectedId = Number(nextId)
     const tx = await contract.createJob(workerAddress, toWei(job.budget))
     await tx.wait()
     await apiPatch(`/jobs/${job.id}`, { onChainJobId: expectedId, workerAddress })
