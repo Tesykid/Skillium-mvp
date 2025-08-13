@@ -1,7 +1,10 @@
 {
   "name": "skillium",
   "private": true,
-  "workspaces": ["apps/*", "packages/*"],
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
     "dev": "turbo run dev --parallel",
     "build": "turbo run build",
@@ -11,11 +14,11 @@
     "prepare": "husky install"
   },
   "devDependencies": {
-    "turbo": "^2.5.5",
-    "prettier": "^3.3.3",
     "eslint": "^8.57.0",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.7",
+    "prettier": "^3.3.3",
+    "turbo": "^2.5.5",
     "typescript": "^5.5.4"
   },
   "packageManager": "npm@10.9.2",
@@ -26,5 +29,8 @@
     "*.{ts,tsx,js,jsx}": [
       "eslint --fix"
     ]
+  },
+  "dependencies": {
+    "pino-pretty": "^13.1.1"
   }
 }
