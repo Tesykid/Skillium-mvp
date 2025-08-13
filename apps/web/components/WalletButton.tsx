@@ -1,37 +1,5 @@
 'use client'
-import { createWeb3Modal, defaultConfig, useWeb3Modal, useWeb3ModalAccount } from '@web3modal/ethers/react'
-
-const projectId = process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID || ''
-
-const metadata = {
-  name: 'Skillium',
-  description: 'Crypto-native P2P skill marketplace',
-  url: 'https://skillium.local',
-  icons: ['https://avatars.githubusercontent.com/u/37784886']
-}
-
-const chains = [
-  {
-    chainId: 80002,
-    name: 'Polygon Amoy',
-    currency: 'MATIC',
-    explorerUrl: 'https://amoy.polygonscan.com',
-    rpcUrl: process.env.NEXT_PUBLIC_RPC_URL || 'https://polygon-amoy.g.alchemy.com/v2/your-key'
-  }
-]
-
-const ethersConfig = defaultConfig({
-  metadata,
-  enableInjected: true,
-  enableEIP6963: true,
-  enableCoinbase: true,
-  rpcUrl: chains[0].rpcUrl
-})
-
-// Initialize once on the client
-if (typeof window !== 'undefined' && projectId) {
-  createWeb3Modal({ ethersConfig, chains, projectId })
-}
+import { useWeb3Modal, useWeb3ModalAccount } from '@web3modal/ethers/react'
 
 export function WalletButton() {
   const { open } = useWeb3Modal()
